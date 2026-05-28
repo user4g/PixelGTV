@@ -1,1 +1,288 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>لانچر بازی‌های تحت وب | کلکسیون بازی</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, 'Segoe UI', 'Tahoma', 'IRANSans', 'Vazir', sans-serif;
+        }
 
+        body {
+            background: linear-gradient(135deg, #0b1120 0%, #19233c 100%);
+            min-height: 100vh;
+            padding: 2rem 1.5rem;
+        }
+
+        /* کانتینر اصلی */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* هدر و عنوان */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(to left, #e0eafc, #cfdef3);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            letter-spacing: -0.5px;
+        }
+
+        .header p {
+            color: #a3b5d9;
+            margin-top: 0.8rem;
+            font-size: 1.1rem;
+            border-bottom: 1px dashed #2c3e66;
+            display: inline-block;
+            padding-bottom: 0.3rem;
+        }
+
+        /* شبکه باکس‌ها (دکوراتیو کارت بازی) */
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            justify-items: center;
+            align-items: stretch;
+        }
+
+        /* استایل باکس هر بازی */
+        .game-card {
+            background: rgba(20, 30, 55, 0.75);
+            backdrop-filter: blur(6px);
+            border-radius: 2rem;
+            width: 100%;
+            max-width: 320px;
+            padding: 1.5rem 1rem 1.8rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .game-card:hover {
+            transform: translateY(-12px);
+            background: rgba(30, 45, 80, 0.9);
+            border-color: #ffb347;
+            box-shadow: 0 25px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        /* آیکون بازی (اموجی یا تصویر پیش‌فرض) */
+        .game-icon {
+            font-size: 4.2rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            background: rgba(0,0,0,0.3);
+            width: 85px;
+            height: 85px;
+            line-height: 1.3;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto;
+            margin-right: auto;
+            transition: 0.2s;
+        }
+
+        .game-card:hover .game-icon {
+            transform: scale(1.05);
+        }
+
+        .game-title {
+            font-size: 1.7rem;
+            font-weight: bold;
+            color: #f2f4ff;
+            margin: 0.75rem 0 0.5rem;
+        }
+
+        .game-description {
+            font-size: 0.85rem;
+            color: #b9c8ff;
+            margin-bottom: 1.2rem;
+            padding: 0 0.5rem;
+            line-height: 1.4;
+        }
+
+        .play-badge {
+            background: #ff9800;
+            color: #1e2a3a;
+            display: inline-block;
+            padding: 0.5rem 1.6rem;
+            border-radius: 40px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: 0.2s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .game-card:hover .play-badge {
+            background: #ffb347;
+            letter-spacing: 0.5px;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+        }
+
+        /* فوتر */
+        .footer {
+            text-align: center;
+            margin-top: 4rem;
+            color: #6c7ea6;
+            font-size: 0.8rem;
+            border-top: 1px solid #253458;
+            padding-top: 2rem;
+        }
+
+        /* ریسپانسیو */
+        @media (max-width: 650px) {
+            body {
+                padding: 1rem;
+            }
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            .game-grid {
+                gap: 1.2rem;
+            }
+            .game-card {
+                padding: 1rem 0.8rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>🎮 آرکید تحت وب 🕹️</h1>
+        <p>به جمع‌آوری بازی‌های تحت‌وب خوش آمدی | هر باکس = یک بازی مخصوص</p>
+    </div>
+
+    <div class="game-grid" id="gameGrid">
+        <!-- باکس بازی 1 : 2048 کلاسیک (لینک واقعی یک بازی تحت وب معروف) -->
+        <div class="game-card" data-url="https://play2048.co/">
+            <div class="game-icon">🔢</div>
+            <div class="game-title">2048</div>
+            <div class="game-description">معمای ترکیب اعداد | معمایی اعتیادآور و هوشمندانه</div>
+            <div class="play-badge">✨ شروع بازی ✨</div>
+        </div>
+
+        <!-- باکس بازی 2 : Flappy Bird سبک (کلون تحت وب قانونی) -->
+        <div class="game-card" data-url="https://flappybird.io/">
+            <div class="game-icon">🐦</div>
+            <div class="game-title">Flappy Bird</div>
+            <div class="game-description">بازی چالش‌برانگیز پرواز | ضربه بزن و بگذر</div>
+            <div class="play-badge">🎯 بازی کن 🎯</div>
+        </div>
+
+        <!-- باکس بازی 3 : Tetris (تتریس کلاسیک تحت وب) -->
+        <div class="game-card" data-url="https://tetris.com/play-tetris">
+            <div class="game-icon">🧩</div>
+            <div class="game-title">تتریس کلاسیک</div>
+            <div class="game-description">بلوک‌ها را بچین و امتیاز بگیر | نابغه ساختارها</div>
+            <div class="play-badge">🔷 شروع 🔷</div>
+        </div>
+
+        <!-- باکس بازی 4 : Solitaire (سالیتر کارتی) -->
+        <div class="game-card" data-url="https://www.solitr.com/">
+            <div class="game-icon">🃏</div>
+            <div class="game-title">سالیتر (Solitaire)</div>
+            <div class="game-description">بازی فکری ورق‌ها | چیدمان هوشمندانه</div>
+            <div class="play-badge">♠️ بازی آنلاین ♥️</div>
+        </div>
+
+        <!-- باکس بازی 5 : ماهیگیر (بازی ماهیگیری HTML5 نمونه - لینک معتبر تحت وب) 
+             لینک واقعی یک بازی ساده و محبوب -->
+        <div class="game-card" data-url="https://www.crazygames.com/game/fishing-games">
+            <div class="game-icon">🎣</div>
+            <div class="game-title">ماهیگیری حرفه‌ای</div>
+            <div class="game-description">ماهی‌های رنگارنگ بگیر و آرامش داشته باش</div>
+            <div class="play-badge">🐟 قلاب بنداز 🐟</div>
+        </div>
+
+        <!-- باکس بازی 6 : معمای سودوکو تحت وب -->
+        <div class="game-card" data-url="https://sudoku.com/">
+            <div class="game-icon">📐</div>
+            <div class="game-title">سودوکو</div>
+            <div class="game-description">معمای اعداد | تمرین فوقالعاده برای مغز</div>
+            <div class="play-badge">🧠 شروع معمای ذهن 🧠</div>
+        </div>
+
+        <!-- باکس بازی 7 : Moto X3M (بسیار محبوب و تحت وب) -->
+        <div class="game-card" data-url="https://www.crazygames.com/game/moto-x3m">
+            <div class="game-icon">🏍️</div>
+            <div class="game-title">موتو X3M</div>
+            <div class="game-description">موتورسواری افراطی با پرش‌های نفس‌گیر!</div>
+            <div class="play-badge">🏁 استارت مسابقه 🏁</div>
+        </div>
+
+        <!-- باکس بازی 8 : بسته کمکی – بازی حافظه (لینک به یک بازی حافظه معروف) -->
+        <div class="game-card" data-url="https://www.memozor.com/memory-games">
+            <div class="game-icon">🧠</div>
+            <div class="game-title">بازی حافظه</div>
+            <div class="game-description">کارت‌ها را به خاطر بسپار و جفت پیدا کن</div>
+            <div class="play-badge">🃏 شروع تمرین حافظه 🃏</div>
+        </div>
+    </div>
+
+    <div class="footer">
+        ⚡注意: تمام بازی‌ها معتبر و تحت وب هستند — با کلیک روی هر باکس مستقیماً وارد بازی می‌شوید ⚡
+        <br>
+        🕹️ طراحی شده با ❤️ برای علاقه‌مندان به بازی‌های آنلاین
+    </div>
+</div>
+
+<script>
+    // گرفتن همه باکس‌ها (game-card)
+    const gameBoxes = document.querySelectorAll('.game-card');
+
+    // تابع هدایت به بازی پس از کلیک
+    function redirectToGame(event) {
+        // مهم: از event برای جلوگیری از خطاهای bubbling استفاده نمی‌کنیم اما مستقیم target را می‌گیریم
+        // بازیابی کارتی که کاربر روی آن کلیک کرده (ممکن است روی دکمه یا عنوان کلیک کرده باشد)
+        let targetCard = event.currentTarget; // چون eventListener روی خود game-card قرار گرفته
+        
+        if(targetCard && targetCard.dataset.url) {
+            const gameUrl = targetCard.dataset.url;
+            // باز کردن لینک در تب جدید (یا همان صفحه - بهتره تب جدید برای تجربه بهتر)
+            window.open(gameUrl, '_blank');
+        } else {
+            // اگر به هر دلیل data-url وجود نداشت (فقط برای ایمنی)
+            console.warn("آدرس بازی موجود نیست!");
+            alert("لطفاً دوباره تلاش کنید. لینک بازی یافت نشد.");
+        }
+    }
+
+    // اختصاص event listener به هر باکس
+    gameBoxes.forEach(card => {
+        card.addEventListener('click', redirectToGame);
+        // نشانگر دست (pointer) قبلاً در css data-cursor pointer هست (از استایل global .game-card داریم cursor:pointer)
+        // اضافه کردن role و ویژگی accessibility
+        card.setAttribute('role', 'button');
+        card.setAttribute('tabindex', '0');
+        // اضافه کردن قابلیت کیبورد: Enter یا Space
+        card.addEventListener('keypress', function(e) {
+            if(e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                redirectToGame.call(card, e);
+            }
+        });
+    });
+
+    // پیام لاگ برای توسعه‌دهنده (اختیاری)
+    console.log("✅ لانچر بازی آماده است — روی هر باکس کلیک کن تا به بازی مورد نظر بری");
+</script>
+</body>
+</html>
