@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>لانچر بازی‌های تحت وب | PIxelGTV</title>
+    <title>لانچر بازی‌های تحت وب | کلکسیون بازی</title>
     <style>
         * {
             margin: 0;
@@ -24,26 +24,60 @@
             margin: 0 auto;
         }
 
-        /* هدر و عنوان */
+        /* هدر و عنوان - جدید با لوگو */
         .header {
             text-align: center;
             margin-bottom: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        /* کانتینر لوگو + عنوان */
+        .logo-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            background: rgba(0, 0, 0, 0.25);
+            padding: 0.8rem 2rem;
+            border-radius: 80px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* استایل لوگو PNG */
+        .custom-logo {
+            height: 65px;
+            width: auto;
+            max-width: 180px;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+            transition: transform 0.2s ease;
+        }
+
+        .custom-logo:hover {
+            transform: scale(1.05);
         }
 
         .header h1 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             background: linear-gradient(to left, #e0eafc, #cfdef3);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             text-shadow: 0 2px 5px rgba(0,0,0,0.2);
             letter-spacing: -0.5px;
+            margin: 0;
         }
 
         .header p {
             color: #a3b5d9;
-            margin-top: 0.8rem;
-            font-size: 1.1rem;
+            margin-top: 0.5rem;
+            font-size: 1rem;
             border-bottom: 1px dashed #2c3e66;
             display: inline-block;
             padding-bottom: 0.3rem;
@@ -151,7 +185,14 @@
                 padding: 1rem;
             }
             .header h1 {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
+            }
+            .logo-title {
+                padding: 0.5rem 1rem;
+                gap: 0.8rem;
+            }
+            .custom-logo {
+                height: 45px;
             }
             .game-grid {
                 gap: 1.2rem;
@@ -166,113 +207,50 @@
 
 <div class="container">
     <div class="header">
-        <h1>🎮 آرکید تحت وب 🕹️</h1>
+        <!-- بخش لوگو + عنوان سایت -->
+        <div class="logo-title">
+            <!-- ⚠️ مسیر لوگو رو اینجا به فایل PNG خودت تغییر بده -->
+            <img src="logo.png" alt="لوگوی سایت" class="custom-logo" onerror="this.onerror=null; this.src='https://placehold.co/200x80?text=LOGO+Not+Found';">
+            <h1>🎮 آرکید تحت وب 🕹️</h1>
+        </div>
         <p>به جمع‌آوری بازی‌های تحت‌وب خوش آمدی | هر باکس = یک بازی مخصوص</p>
     </div>
 
     <div class="game-grid" id="gameGrid">
-        <!-- باکس بازی 1 : 2048 کلاسیک (لینک واقعی یک بازی تحت وب معروف) -->
+        <!-- باکس بازی 1 : 2048 کلاسیک -->
         <div class="game-card" data-url="https://play2048.co/">
             <div class="game-icon">🔢</div>
             <div class="game-title">2048</div>
             <div class="game-description">معمای ترکیب اعداد | معمایی اعتیادآور و هوشمندانه</div>
             <div class="play-badge">✨ شروع بازی ✨</div>
         </div>
-
-        <!-- باکس بازی 2 : Flappy Bird سبک (کلون تحت وب قانونی) -->
-        <div class="game-card" data-url="https://flappybird.io/">
-            <div class="game-icon">🐦</div>
-            <div class="game-title">Flappy Bird</div>
-            <div class="game-description">بازی چالش‌برانگیز پرواز | ضربه بزن و بگذر</div>
-            <div class="play-badge">🎯 بازی کن 🎯</div>
-        </div>
-
-        <!-- باکس بازی 3 : Tetris (تتریس کلاسیک تحت وب) -->
-        <div class="game-card" data-url="https://tetris.com/play-tetris">
-            <div class="game-icon">🧩</div>
-            <div class="game-title">تتریس کلاسیک</div>
-            <div class="game-description">بلوک‌ها را بچین و امتیاز بگیر | نابغه ساختارها</div>
-            <div class="play-badge">🔷 شروع 🔷</div>
-        </div>
-
-        <!-- باکس بازی 4 : Solitaire (سالیتر کارتی) -->
-        <div class="game-card" data-url="https://www.solitr.com/">
-            <div class="game-icon">🃏</div>
-            <div class="game-title">سالیتر (Solitaire)</div>
-            <div class="game-description">بازی فکری ورق‌ها | چیدمان هوشمندانه</div>
-            <div class="play-badge">♠️ بازی آنلاین ♥️</div>
-        </div>
-
-        <!-- باکس بازی 5 : ماهیگیر (بازی ماهیگیری HTML5 نمونه - لینک معتبر تحت وب) 
-             لینک واقعی یک بازی ساده و محبوب -->
-        <div class="game-card" data-url="https://www.crazygames.com/game/fishing-games">
-            <div class="game-icon">🎣</div>
-            <div class="game-title">ماهیگیری حرفه‌ای</div>
-            <div class="game-description">ماهی‌های رنگارنگ بگیر و آرامش داشته باش</div>
-            <div class="play-badge">🐟 قلاب بنداز 🐟</div>
-        </div>
-
-        <!-- باکس بازی 6 : معمای سودوکو تحت وب -->
-        <div class="game-card" data-url="https://sudoku.com/">
-            <div class="game-icon">📐</div>
-            <div class="game-title">سودوکو</div>
-            <div class="game-description">معمای اعداد | تمرین فوقالعاده برای مغز</div>
-            <div class="play-badge">🧠 شروع معمای ذهن 🧠</div>
-        </div>
-
-        <!-- باکس بازی 7 : Moto X3M (بسیار محبوب و تحت وب) -->
-        <div class="game-card" data-url="https://www.crazygames.com/game/moto-x3m">
-            <div class="game-icon">🏍️</div>
-            <div class="game-title">موتو X3M</div>
-            <div class="game-description">موتورسواری افراطی با پرش‌های نفس‌گیر!</div>
-            <div class="play-badge">🏁 استارت مسابقه 🏁</div>
-        </div>
-
-        <!-- باکس بازی 8 : بسته کمکی – بازی حافظه (لینک به یک بازی حافظه معروف) -->
-        <div class="game-card" data-url="https://www.memozor.com/memory-games">
-            <div class="game-icon">🧠</div>
-            <div class="game-title">بازی حافظه</div>
-            <div class="game-description">کارت‌ها را به خاطر بسپار و جفت پیدا کن</div>
-            <div class="play-badge">🃏 شروع تمرین حافظه 🃏</div>
-        </div>
     </div>
 
     <div class="footer">
-        ⚡注意: تمام بازی‌ها معتبر و تحت وب هستند — با کلیک روی هر باکس مستقیماً وارد بازی می‌شوید ⚡
+        ⚡ تمام بازی‌ها معتبر و تحت وب هستند — با کلیک روی هر باکس مستقیماً وارد بازی می‌شوید ⚡
         <br>
         🕹️ طراحی شده با ❤️ برای علاقه‌مندان به بازی‌های آنلاین
     </div>
 </div>
 
 <script>
-    // گرفتن همه باکس‌ها (game-card)
     const gameBoxes = document.querySelectorAll('.game-card');
 
-    // تابع هدایت به بازی پس از کلیک
     function redirectToGame(event) {
-        // مهم: از event برای جلوگیری از خطاهای bubbling استفاده نمی‌کنیم اما مستقیم target را می‌گیریم
-        // بازیابی کارتی که کاربر روی آن کلیک کرده (ممکن است روی دکمه یا عنوان کلیک کرده باشد)
-        let targetCard = event.currentTarget; // چون eventListener روی خود game-card قرار گرفته
-        
+        let targetCard = event.currentTarget;
         if(targetCard && targetCard.dataset.url) {
             const gameUrl = targetCard.dataset.url;
-            // باز کردن لینک در تب جدید (یا همان صفحه - بهتره تب جدید برای تجربه بهتر)
             window.open(gameUrl, '_blank');
         } else {
-            // اگر به هر دلیل data-url وجود نداشت (فقط برای ایمنی)
             console.warn("آدرس بازی موجود نیست!");
             alert("لطفاً دوباره تلاش کنید. لینک بازی یافت نشد.");
         }
     }
 
-    // اختصاص event listener به هر باکس
     gameBoxes.forEach(card => {
         card.addEventListener('click', redirectToGame);
-        // نشانگر دست (pointer) قبلاً در css data-cursor pointer هست (از استایل global .game-card داریم cursor:pointer)
-        // اضافه کردن role و ویژگی accessibility
         card.setAttribute('role', 'button');
         card.setAttribute('tabindex', '0');
-        // اضافه کردن قابلیت کیبورد: Enter یا Space
         card.addEventListener('keypress', function(e) {
             if(e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
@@ -281,7 +259,6 @@
         });
     });
 
-    // پیام لاگ برای توسعه‌دهنده (اختیاری)
     console.log("✅ لانچر بازی آماده است — روی هر باکس کلیک کن تا به بازی مورد نظر بری");
 </script>
 </body>
